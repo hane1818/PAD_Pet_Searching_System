@@ -6,40 +6,40 @@
 </head>
 <body>
 <?php
-    $db_server = $_ENV['PAD_HOST'];
-    $db_name = $_ENV['PAD_DBNAME'];
-    $db_user = $_ENV['PAD_USER'];
-    $db_passwd = $_ENV['PAD_PASSWD'];
-    $db_port = $_ENV['PAD_DBPORT'];
+    $dbopts = parse_url(getenv('DATABASE_URL'));
+    $app->register(new Herrera\Pdo\PdoServiceProvider(),
+    array(
+        'pdo.dsn' => 'pgsql:dbname='.ltrim($dbopts["path"],'/').';host='.$dbopts["host"],
+        'pdo.port' => $dbopts["port"],
+        'pdo.username' => $dbopts["user"],
+        'pdo.password' => $dbopts["pass"])
+    );
 
-    $conn = pg_connect("host=$db_server port=$db_port dbname=$db_name user=$db_user password=$db_passwd sslmode=require");
+    $app->get('/db/', function() use($app) {
+    $st = $app['pdo']->prepare('SELECT name FROM test_table');
+    $st->execute();
 
-    if(!$conn)
-        echo "Failed!";
-    else
-    {
-        echo "Successed!";
-            if(pg_query($conn, "CREATE TABLE test(
-                        ID INT PRIMARY KEY NOT_NULL,
-                        TEST TEXT,
-                    )"))
-                echo "Create table succeed!";
-            if(pg_query($conn, "INSERT INTO test (ID, TEST) VALUES (0, 'TT')"))
-                echo "Insert OK!";
-
-            $result = pg_query($conn, "SELECT * FROM test");
-            if($result)
-            {
-                echo "Select OK";
-                while($row = pg_fetch_row($result))
-                {
-                    echo "Mydata<br>";
-                    echo "$row[0]";
-                    echo "$row[1]";
-                }
-            }
-
+    $names = array();
+    while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
+        $app['monolog']->addDebug('Row ' . $row['name']);
+        $names[] = $row;
     }
+
+    return $app['twig']->render('database.twig', array(
+            'names' => $names
+        ));
+    });
 ?>
+
+<p>Got these rows from the database:</p>
+
+<ul>
+{% for n in names %}
+  <li> {{ n.name }} </li>
+{% else %}
+  <li>Nameless!</li>
+{% endfor %}
+</ul>
+
 </body>
 </html>
