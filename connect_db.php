@@ -19,20 +19,25 @@
     else
     {
         echo "Successed!";
-            pg_query($conn, "CREATE TABLE test(
+            if(pg_query($conn, "CREATE TABLE test(
                         ID INT PRIMARY KEY NOT_NULL,
                         TEST TEXT,
-                    );");
-            echo "Create table succeed!";
-            pg_query($conn, "INSERT INTO test (ID, TEST) VALUES (0, 'TT');");
-            echo "Insert OK!";
+                    );"))
+                echo "Create table succeed!";
+            if(pg_query($conn, "INSERT INTO test (ID, TEST) VALUES (0, 'TT');"))
+                echo "Insert OK!";
 
-            while($row = pg_fetch_row(pg_query($conn, "SELECT * FROM test;")))
+            $result = pg_query($conn, "SELECT * FROM test;");
+            if($result)
             {
-                echo "Mydata<br>";
-                echo $row[0];
-                echo $row[1];
+                while($row = pg_fetch_row($result))
+                {
+                    echo "Mydata<br>";
+                    echo $row[0];
+                    echo $row[1];
+                }
             }
+
     }
 ?>
 </body>
