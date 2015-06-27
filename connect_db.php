@@ -11,10 +11,10 @@ $username = $_ENV['PAD_USER'];
 $password = $_ENV['PAD_PASSWD'];
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = mysqli($servername, $username, $password);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+    echo "BYE~";
 }
 echo "Connected successfully";
 
