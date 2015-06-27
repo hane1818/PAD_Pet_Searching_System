@@ -29,7 +29,7 @@
 
             while($row = pg_fetch_row(pg_query($conn, "SELECT * FROM test;")))
             {
-                echo "Mydata<br>"
+                echo "Mydata<br>";
                 echo $row[0];
                 echo $row[1];
             }
