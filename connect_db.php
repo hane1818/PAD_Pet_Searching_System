@@ -12,7 +12,7 @@
     $db_passwd = $_ENV['PAD_PASSWD'];
     $db_port = $_ENV['PAD_DBPORT'];
 
-    $conn = pg_connect("pgsql:host=$db_server;port=$db_port;dbname=$db_name;user=$db_user;password=$db_passwd");
+    $conn = pg_connect("host=$db_server;port=$db_port;dbname=$db_name;user=$db_user;password=$db_passwd");
 
     if(!$conn)
         echo "Failed!";
