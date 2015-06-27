@@ -29,7 +29,9 @@
 
             while($row = pg_fetch_row(pg_query($conn, "SELECT * FROM test;")))
             {
-                 echo "$row[0], $row[1]";
+                echo "Mydata<br>"
+                echo $row[0];
+                echo $row[1];
             }
     }
 ?>
