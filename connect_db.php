@@ -19,7 +19,6 @@
     else
     {
         echo "Successed!";
-        try{
             pg_query("CREATE TABLE test(
                         ID INT PRIMARY KEY NOT_NULL,
                         TEST TEXT,
@@ -32,7 +31,6 @@
             {
                  echo "$row[0], $row[1]";
             }
-        }
     }
 ?>
 </body>
