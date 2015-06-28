@@ -9,6 +9,7 @@ body {
     letter-spacing: 5px;
     font-family: Arial, '微軟正黑體';
     font-size: 18px;
+    line-height: 20px;
 }
 
 header {
@@ -62,6 +63,29 @@ input[type="submit"] {
     margin: 0 auto;
     max-width: 800px;
     width: 80%;
+}
+
+.popup_back, .popup_news {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.popup_news {
+    display: block;
+    margin: auto;
+    width: 400px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-shadow: 3px 3px 7px #999;
+}
+
+.popup_news .sure {
+    display: block;
+    margin: 10px auto;
+    cursor: pointer;
 }
 
 #title {
