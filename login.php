@@ -33,8 +33,19 @@
                     <label for="passwd">密碼</label>
                     <input type="password" name="passwd"><br>
                     <input type="hidden" name="action" value="submit">
-                    <input type="submit" value="登入">
+                    <input type="submit" value="送出">
                 </form>
+                <?php
+                    if($_POST['action'] == "submit")
+                    {
+                        $id = $_POST['id'];
+                        $passwd = $_POST['passwd'];
+                        if($id == "admin" && $passwd == "PetSearch")
+                            $_SESSION['admin'] = $id;
+                        else
+                            echo "<script>alert("帳密輸入錯誤!")</script>";
+                    }
+                ?>
             </div>
         </div>
     </div>
