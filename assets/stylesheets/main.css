@@ -37,7 +37,9 @@ footer {
     bottom: 0;
     clear: both;
     padding: 50px;
-    background: #aaa;
+    background: #eee;
+    color: #888;
+    letter-spacing: 8px;
     text-align: center;
 }
 
@@ -92,7 +94,7 @@ input[type="submit"] {
     font-size: 25px;
 }
 
-#dashboard {
+#dashboard, #logout {
     position: fixed;
     top: 2%;
     right: 1%;
