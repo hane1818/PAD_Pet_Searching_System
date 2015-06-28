@@ -3,28 +3,31 @@
 <head>
     <meta charset="utf-8">
     <title>首頁</title>
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
 </head>
 <body>
     <header>
-        <div>
-            <h1><a href="./">龍族拼圖寵物查詢系統</a></h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="./">Home</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="#">Search pet</a></li>
-            </ul>
-        </nav>
-        <div>
-            <a href="login.php">Dashboard</a>
+        <div class="wrapper">
+            <a id="title" href="./">龍族拼圖寵物查詢系統</a>
+            <nav>
+                <ul>
+                    <li><a href="./">Home</a></li>
+                    <li><a href="about.php">About</a></li>
+                    <li><a href="#">Search pet</a></li>
+                </ul>
+            </nav>
+            <a id="dashboard" href="login.php">Dashboard</a>
         </div>
     </header>
     <div id="main">
-
+        <div class="wrapper">
+            <p>
+                <a href="#">這是</a>
+            </p>
+        </div>
     </div>
     <footer>
-        <p>&copy;劉慈恩、鄭瑜、林筠傑</p>
+        <p>&copy;2015, 劉慈恩、鄭瑜、林筠傑</p>
     </footer>
 </body>
 </html>
