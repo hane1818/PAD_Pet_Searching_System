@@ -3,7 +3,7 @@
     if(!isset($_SESSION["admin"]))
     {
         echo '<script>alert("您還沒登入喔!")</script>';
-        echo '<meta http-equiv="refresh" content="2; url=login.php">';
+        header("Location: login.php");
     }
 ?>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
                     <li><a href="#">Search</a></li>
                 </ul>
             </nav>
-            <a id="dashboard" href="logout.php">登出</a>
+            <a id="logout" href="logout.php">登出</a>
         </div>
     </header>
     <div id="main">
