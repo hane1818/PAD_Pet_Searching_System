@@ -46,7 +46,7 @@
                             echo '<meta http-equiv="refresh" content="1; url=dashboard.php">';
                         }
                         else
-                            echo "<script>alert("帳密輸入錯誤!")</script>";
+                            echo "<script>alert('帳密輸入錯誤!')</script>";
                     }
                 ?>
             </div>
