@@ -2,7 +2,7 @@
     session_start();
     //先判斷管理員是否登入，有登入就導向至管理系統
     if(isset($_SESSION["admin"]))
-        echo '<meta http-equiv="refresh" content="0; url=dashboard.php">';
+        header("Location: dashboard.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,7 +43,7 @@
                         if($id == "admin" && $passwd == "PetSearch")
                         {
                             $_SESSION["admin"] = $id;
-                            echo '<meta http-equiv="refresh" content="0; url=dashboard.php">';
+                            header("Location: dashboard.php");
                         }
                         else
                             echo "<script>alert('帳密輸入錯誤!')</script>";
