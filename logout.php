@@ -4,7 +4,7 @@
     if(isset($_SESSION["admin"]))
     {
         unset($_SESSION["admin"]);
-        echo '<meta http-equiv="refresh" content="0; url=index.php">';
+        header("Location: index.php");
     }
 ?>
 <!DOCTYPE html>
