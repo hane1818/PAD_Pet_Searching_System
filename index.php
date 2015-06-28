@@ -13,7 +13,7 @@
                 <ul>
                     <li><a href="./">Home</a></li>
                     <li><a href="about.php">About</a></li>
-                    <li><a href="#">Search pet</a></li>
+                    <li><a href="#">Search</a></li>
                 </ul>
             </nav>
             <a id="dashboard" href="login.php">Dashboard</a>
