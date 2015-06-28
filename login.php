@@ -2,7 +2,7 @@
     session_start();
     //先判斷管理員是否登入，有登入就導向至管理系統
     if(isset($_SESSION["admin"]))
-        echo '<meta http-equiv="refresh" content="0; url=manageSystem.php">';
+        echo '<meta http-equiv="refresh" content="0; url=dashboard.php">';
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,12 +36,15 @@
                     <input type="submit" value="送出">
                 </form>
                 <?php
-                    if($_POST['action'] == "submit")
+                    if($_POST["action"] == "submit")
                     {
-                        $id = $_POST['id'];
-                        $passwd = $_POST['passwd'];
+                        $id = $_POST["id"];
+                        $passwd = $_POST["passwd"];
                         if($id == "admin" && $passwd == "PetSearch")
-                            $_SESSION['admin'] = $id;
+                        {
+                            $_SESSION["admin"] = $id;
+                            echo '<meta http-equiv="refresh" content="1; url=dashboard.php">';
+                        }
                         else
                             echo "<script>alert("帳密輸入錯誤!")</script>";
                     }
