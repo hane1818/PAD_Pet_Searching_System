@@ -2,7 +2,7 @@
     session_start();
     if(!isset($_SESSION["admin"]))
     {
-        echo "您還沒登入喔!";
+        echo '<script>alert("您還沒登入喔!")</script>';
         echo '<meta http-equiv="refresh" content="2; url=login.php">';
     }
 ?>
