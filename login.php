@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>管理員登入</title>
+    <title>龍族拼圖寵物查詢系統 - 管理後台登入</title>
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
 </head>
 <body>
@@ -26,12 +26,16 @@
     </header>
     <div id="main">
         <div class="wrapper">
-            <form method="POST">
-                帳號：<input type="text" name="id"><br>
-                密碼：<input type="password" name="passwd"><br>
-                <input type="hidden" name="action" value="submit">
-                <input type="submit" value="登入">
-            </form>
+            <div id="login">
+                <form method="POST">
+                    <label for="id">帳號</label>
+                    <input type="text" name="id"><br>
+                    <label for="passwd">密碼</label>
+                    <input type="password" name="passwd"><br>
+                    <input type="hidden" name="action" value="submit">
+                    <input type="submit" value="登入">
+                </form>
+            </div>
         </div>
     </div>
     <footer>
