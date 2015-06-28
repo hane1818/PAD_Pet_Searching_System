@@ -1,0 +1,55 @@
+@import url('reset.css');
+
+body {
+    background: #fff;
+    font-family: Arial, '微軟正黑體';
+    letter-spacing: 5px;
+}
+
+header {
+    padding: 40px 0;
+    background: hsl(240, 35%, 50%);
+    letter-spacing: 2px;
+}
+
+header a {
+    color: hsl(0, 100%, 100%);
+}
+
+nav {
+    margin-left: 30px;
+}
+
+nav, nav ul li {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+footer {
+    bottom: 0;
+    clear: both;
+    padding: 50px;
+    background: #aaa;
+    text-align: center;
+}
+
+a {
+    color: hsl(240, 35%, 50%);
+    text-decoration: none;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 800px;
+    width: 80%;
+}
+
+#title {
+    font-size: 25px;
+}
+
+#dashboard {
+    position: absolute;
+    right: 3%;
+    display: inline-block;
+}
