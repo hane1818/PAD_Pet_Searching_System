@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>首頁</title>
+    <title>龍族拼圖寵物查詢系統</title>
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
 </head>
 <body>
