@@ -43,7 +43,7 @@
                         if($id == "admin" && $passwd == "PetSearch")
                         {
                             $_SESSION["admin"] = $id;
-                            echo '<meta http-equiv="refresh" content="1; url=dashboard.php">';
+                            echo '<meta http-equiv="refresh" content="0; url=dashboard.php">';
                         }
                         else
                             echo "<script>alert('帳密輸入錯誤!')</script>";
