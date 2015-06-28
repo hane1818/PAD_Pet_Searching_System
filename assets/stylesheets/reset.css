@@ -48,5 +48,5 @@ table {
 }
 
 a, a:hover, a:visited, a:focus, a:active {
-    outline: 0 !important;
+    outline: none !important;
 }
