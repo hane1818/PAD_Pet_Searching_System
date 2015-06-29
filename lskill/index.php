@@ -56,8 +56,8 @@
 					echo '<td>'.$id[$i].'</td>';
 					echo '<td>'.$name[$i].'</td>';
 					echo '<td>'.$effect[$i].'</td>';
-					echo '<td><a href="update.php?id='.$id[$i].'&url='.$url[$i].'&name='.$name[$i].'&effect='.$effect[$i].'">修改</td>';
-					echo '<td><a href="delete.php?id='.$id[$i].'">刪除</td>';
+					echo '<td><a onclick="popup(&quot;update.php?id='.$id[$i].'&url='.$url[$i].'&name='.$name[$i].'&effect='.$effect[$i].'&quot;)">修改</a></td>';
+					echo '<td><a href="delete.php?id='.$id[$i].'">刪除</a></td>';
 					echo '</tr>';
 				}
 				?>
