@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["admin"]))
+    {
+        echo '<script>alert("您還沒登入喔!")</script>';
+        header("Location: login.php");
+    }
+?>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -8,7 +17,7 @@
 <body>
 	<header>
         <div class="wrapper">
-            <a id="title" href="dashboard.php">龍族拼圖寵物查詢系統 - 管理後台</a>
+            <a id="title" href="dashboard.php">管理後台</a>
             <nav>
                 <ul>
                     <li><a href="./">Home</a></li>
