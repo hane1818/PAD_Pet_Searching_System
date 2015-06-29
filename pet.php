@@ -8,7 +8,7 @@
 	<table width="900" border="1" bgcolor="#cccccc" align="center">
 		<?php
 			//連接MySQL伺服器
-			$link_ID = mysql_connect('localhost', 'root', '123');
+			$link_ID = mysql_connect('127.0.0.1', 'root', '123');
 			if(!$link_ID) die("Unable to connect MySQL:".mysql_error());
 			mysql_select_db('pad');
 			//使用 UTF8 編碼
@@ -19,9 +19,9 @@
 			$result = mysql_query($search_id);
 			$record = mysql_fetch_object($result);
 			if($record){
-				echo '<tr><th>編號</th><td bgcolor="#FFFFFF">'.$record->id.'</td></tr>';
+				echo '<tr><th width="100">編號</th><td bgcolor="#FFFFFF">'.$record->id.'</td></tr>';
 				echo '<tr><th>名稱</th><td bgcolor="#FFFFFF">'.$record->name.'</td></tr>';
-				echo '<tr><th>圖片</th><td bgcolor="#FFFFFF"><img src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png"></td></tr>';
+				echo '<tr><th>圖片</th><td bgcolor="#FFFFFF"><a href="pet.php?id='.$record->id.'"><img src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png"></a></td></tr>';
 				echo '<tr><th>稀有</th><td bgcolor="#FFFFFF">'.$record->rare.'星</td></tr>';
 				echo '<tr><th>Cost</th><td bgcolor="#FFFFFF">'.$record->cost.'</td></tr>';
 				$p=array(null,'火','水','木','光','暗');
@@ -69,6 +69,14 @@
 					echo '<img src="'.$ws->url.'" width="25" align="absmiddle" title="'.$ws->name.'">';
 				}
 				echo '</td></tr>';
+				echo '<tr><th>同技能寵物</th><td bgcolor="#FFFFFF">';
+				$same_skill = mysql_query("select * from pets where a_id = '$aid' and id <> '$id'");
+				//echo $same_skill;
+				while($record = mysql_fetch_object($same_skill)){
+					echo '<a href="pet.php?id='.$record->id.'"><img src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" title="No.'.$record->id.' - '.$record->name.'"></a>';
+				}
+				echo '</td></tr>';
+				echo '<tr><th></th><td bgcolor="#FFFFFF">修改/刪除</td></tr>';
 			}else{
 				echo '<tr><th></th><td bgcolor="#FFFFFF">寵物不存在</td></tr>';
 			}
