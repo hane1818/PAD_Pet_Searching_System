@@ -209,7 +209,6 @@
                 $text1=$text1.' and id in (select distinct PetID from pethaswake where '.$text2.')';
             }
             //排序
-            echo '<br>sorting='.$sorting.'<br>';
             if($sorting=="ability"){
                 $search3 = "select * from pets where $text1 order by (maxHP/10+maxAtk/5+maxRec/3) $orderby";
                 $tmp=mysql_query($search3);
