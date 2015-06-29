@@ -1,7 +1,18 @@
+<?php
+	session_start();
+    if(!isset($_SESSION["admin"]))
+    {
+        echo '<script>alert("您還沒登入喔!")</script>';
+        header("Location: login.php");
+    }
+?>
+<!DOCTYPE html>
 <html>
 <head>
-<title>PAD寵物資料庫管理系統</title>
-		<meta charset="utf-8">
+	<meta charset="utf-8">
+	<title>PAD寵物資料庫管理系統</title>
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+    <script type="text/javascript" src="assets/scripts/main.js"></script>
 </head>
 <body>
 	<h1 align="center">修改主動技能</h1>
@@ -27,7 +38,7 @@
 		  <th>最短CD</th>
 		  <td bgcolor="#FFFFFF"><input type="number" max="50" min="1" name="minCD" value="<? echo $_GET['minCD']; ?>" /></td>
 		</tr>
-		
+
 		<tr>
 		  <th colspan="2"><input type="submit" value="更新"/></th>
 		</tr>

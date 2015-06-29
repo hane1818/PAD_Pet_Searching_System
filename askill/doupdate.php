@@ -1,4 +1,10 @@
 <?php
+	session_start();
+    if(!isset($_SESSION["admin"]))
+    {
+        echo '<script>alert("您還沒登入喔!")</script>';
+        header("Location: login.php");
+    }
 	header("Content-Type:text/html; charset=utf-8");
 	//連接MySQL伺服器
 	$link_ID = mysql_connect('localhost', 'root', '123');
