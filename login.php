@@ -44,7 +44,7 @@
                         if($id == "admin" && $passwd == "PetSearch")
                         {
                             $_SESSION["admin"] = $id;
-                            header("Location: dashboard.php");
+                            echo '<meta http-equiv="REFRESH" CONTENT="0;url=dashboard.php">';
                         }
                         else
                             echo "<script>alert('帳密輸入錯誤!')</script>";
