@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["admin"]))
+    {
+        echo '<script>alert("您還沒登入喔!")</script>';
+        header("Location: login.php");
+    }
+?>
+<!DOCTYPE html>
 <html>
 <head>
 <title>PAD寵物資料庫管理系統</title>

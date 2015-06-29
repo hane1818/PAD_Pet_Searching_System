@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["admin"]))
+    {
+        echo '<script>alert("您還沒登入喔!")</script>';
+        header("Location: login.php");
+    }
+?>
+<!DOCTYPE html>
 <html>
 <head>
 <title>PAD寵物資料庫管理系統</title>
@@ -11,15 +20,15 @@
 		<?php
 			//連接MySQL伺服器
 			$link_ID = mysql_connect('localhost', 'root', '123');
-			
+
 			if(!$link_ID) die("Unable to connect MySQL:".mysql_error());
-			
+
 			mysql_select_db('pad');
 			//使用 UTF8 編碼
 			mysql_query('SET CHARACTER SET UTF8;');
-			
+
 			$result = mysql_query("SELECT * FROM LeaderSkill order by id;", $link_ID);
-			
+
 			for($i=0; $i<mysql_num_rows($result);$i++){
 				$record = mysql_fetch_object($result);
 				$id[$i] = $record->id;
@@ -33,7 +42,7 @@
 				echo '</tr>';
 			}
 		?>
-		
+
 	</table><h1 align="center">新增隊長技能資料</h1>
 	<form action="create.php" method="post">
 	  <table width="800" border="1" bgcolor="#cccccc" align="center">
