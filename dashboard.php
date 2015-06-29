@@ -17,12 +17,14 @@
 <body>
     <header>
         <div class="wrapper">
-            <a id="title" href="dashboard.php">龍族拼圖寵物查詢系統 - 管理後台</a>
+            <a id="title" href="dashboard.php">管理後台</a>
             <nav>
                 <ul>
                     <li><a href="./">Home</a></li>
-                    <li><a href="about.php">About</a></li>
-                    <li><a href="#">Search</a></li>
+                    <li><a href="">寵物</a></li>
+                    <li><a href="wake/">覺醒技能</a></li>
+                    <li><a href="askill/">主動技能</a></li>
+                    <li><a href="lskill/">隊長技能</a></li>
                 </ul>
             </nav>
             <a id="logout" href="logout.php">登出</a>

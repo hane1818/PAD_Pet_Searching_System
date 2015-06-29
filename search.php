@@ -161,7 +161,7 @@
         if(!empty($id)){
             $single = mysql_query("SELECT * FROM pets where id=$id");
             $record = mysql_fetch_object($single);
-            if($record) echo '<img style="cursor:pointer;" onclick="popup('.$record->id.')" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'">';
+            if($record) echo '<img style="cursor:pointer;" onclick="popup(&quot;pet.php?id='.$record->id.'&quot;)" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'">';
             else echo '該編號寵物不存在';
         }else{
             //字串rare
@@ -213,13 +213,13 @@
                 $search3 = "select * from pets where $text1 order by (maxHP/10+maxAtk/5+maxRec/3) $orderby";
                 $tmp=mysql_query($search3);
                 while($record = mysql_fetch_object($tmp)){
-                    echo '<img style="cursor:pointer;" onclick="popup('.$record->id.')" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'">';
+                    echo '<img style="cursor:pointer;" onclick="popup(&quot;pet.php?id='.$record->id.'&quot;)" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'">';
                 }
             }else{
                 $search3 = "select * from pets where $text1 order by $sorting $orderby";
                 $tmp=mysql_query($search3);
                 while($record = mysql_fetch_object($tmp)){
-                    echo '<img style="cursor:pointer;" onclick="popup('.$record->id.')" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'">';
+                    echo '<img style="cursor:pointer;" onclick="popup(&quot;pet.php?id='.$record->id.'&quot;)" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'">';
                 }
             }
             //echo '<br>search3='.$search3.'<br>';
