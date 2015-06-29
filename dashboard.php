@@ -12,6 +12,7 @@
     <meta charset="utf-8">
     <title>龍族拼圖寵物查詢系統 - 管理後台</title>
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+    <script type="text/javascript" src="assets/scripts/main.js"></script>
 </head>
 <body>
     <header>
