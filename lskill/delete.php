@@ -20,20 +20,21 @@
 		$delete_sql = "DELETE FROM LeaderSkill WHERE ID = '$id'";
 		$query = mysql_query($delete_sql);
 		if($query) {
-			echo "刪除成功!";
+			echo '<script>alert("刪除成功!!");</script>';
 			//更新寵物
 			$update_sql = "UPDATE pets SET l_id=null WHERE l_id = '$id'";
 			$query = mysql_query($update_sql);
 			if($query){
-				echo '<br>更新寵物成功<br>';
+				echo '<script>alert("更新寵物成功");</script>';
 			}else{
-				echo '<br>更新寵物失敗<br>';
+				echo '<script>alert("更新寵物失敗");</script>';
 			}
 		}else{
-			echo "刪除失敗!";
+			echo '<script>alert("刪除失敗!!");</script>';
 		}
 	}else{
-		echo "資料不足!";
+		echo '<script>alert("資料不足");</script>';
 	}
-	echo "<br><a href='index.php'>返回隊長技能列表</a>";
+	echo '<meta http-equiv="REFRESH" CONTENT="0;url=./">'
+?>
 ?>
