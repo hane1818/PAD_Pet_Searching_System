@@ -3,8 +3,10 @@
 <head>
     <meta charset="utf-8">
     <title>龍族拼圖寵物查詢系統</title>
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+    <script type="text/javascript" src="assets/scripts/main.js"></script>
 </head>
-<!--?php
+<?php
     //header("Content-Type:text/html; charset=utf-8");
     //連接MySQL伺服器
     $link_ID = mysql_connect('localhost', 'root', '123');
@@ -12,7 +14,7 @@
     mysql_select_db('pad');
     //使用 UTF8 編碼
     mysql_query('SET CHARACTER SET UTF8;');
-?-->
+?>
 <body>
     <header>
         <div class="wrapper">
