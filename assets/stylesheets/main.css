@@ -54,6 +54,12 @@ a {
     border-bottom: 1px dotted hsl(240, 35%, 45%);
 }
 
+iframe {
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
 input {
     margin: 10px 0;
 }
@@ -79,20 +85,23 @@ input[type="submit"] {
     bottom: 0;
     right: 0;
     left: 0;
+    background: rgba(255, 255, 255, 0.7);
 }
 
 .popup_news {
     display: block;
     margin: auto;
-    width: 400px;
+    width: 80vw;
     border: 1px solid #aaa;
     border-radius: 5px;
     box-shadow: 3px 3px 7px #999;
 }
 
-.popup_news .sure {
+.popup_back .sure {
     display: block;
-    margin: 10px auto;
+    position: fixed;
+    right: 1%;
+    background: none;
     cursor: pointer;
 }
 
