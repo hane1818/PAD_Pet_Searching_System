@@ -21,13 +21,13 @@
             <nav>
                 <ul>
                     <li><a href="../">Home</a></li>
-                    <li><a href="">寵物</a></li>
-                    <li><a href="wake/">覺醒技能</a></li>
-                    <li><a href="askill/">主動技能</a></li>
-                    <li><a href="lskill/">隊長技能</a></li>
+                    <li><a href="../">寵物</a></li>
+                    <li><a href="../wake/">覺醒技能</a></li>
+                    <li><a href="../askill/">主動技能</a></li>
+                    <li><a href="../lskill/">隊長技能</a></li>
                 </ul>
             </nav>
-            <a id="logout" href="logout.php">登出</a>
+            <a id="logout" href="../logout.php">登出</a>
         </div>
     </header>
     <div id="main">
