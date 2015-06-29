@@ -224,12 +224,12 @@
             }
             //echo '<br>search3='.$search3.'<br>';
         }
-        //列出所有寵物
+        /*列出所有寵物
         echo '<br><br><br><br><br><br>目前資料庫有的寵物<br>';
         $select_all = mysql_query("SELECT * FROM pets order by id");
         while($record = mysql_fetch_object($select_all)){
             echo '<img style="cursor:pointer;" onclick="popup('.$record->id.')" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'">';
-        }
+        }*/
     ?>
         </div>
     </div>
