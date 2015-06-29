@@ -19,7 +19,7 @@
 		$name=$_POST['name'];
 		$effect=$_POST['effect'];
 		$insert_sql="insert into leaderskill values('$id','$name','$effect')";
-		echo $insert_sql;
+		//echo $insert_sql;
 		$result=mysql_query($insert_sql);
 		if($result){
 			echo '<script>alert("新增成功!!");</script>';

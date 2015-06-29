@@ -20,17 +20,16 @@
 		$name = $_POST['name'];
 		$effect = $_POST['effect'];
 		$update_sql = "UPDATE WakeSkill SET Name = '$name', Effect = '$effect' WHERE ID=$id";
-		echo '<br>'.$update_sql.'<br>';
+		//echo '<br>'.$update_sql.'<br>';
 		$result = mysql_query($update_sql);
 
-		if($result)
-		{
-			echo "修改成功!!";
+		if($result){
+			echo '<script>alert("修改成功!!");</script>';
 		}else{
-			echo "修改失敗!!";
+			echo '<script>alert("修改失敗!!");</script>';
 		}
 	}else{
-		echo "資料不完全";
+		echo '<script>alert("資料不完全");</script>';
 	}
-	echo "<br><a href='index.php'>返回覺醒技能列表</a>"
+	echo '<meta http-equiv="REFRESH" CONTENT="0;url=update.php">'
 ?>

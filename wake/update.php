@@ -9,8 +9,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>PAD寵物資料庫管理系統</title>
-		<meta charset="utf-8">
+	<meta charset="utf-8">
+	<title>PAD寵物資料庫管理系統</title>
+	<link rel="stylesheet" type="text/css" href="../assets/stylesheets/main.css">
+    <script type="text/javascript" src="../assets/scripts/main.js"></script>
 </head>
 <body>
 	<h1 align="center">修改覺醒技能</h1>
