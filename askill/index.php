@@ -2,6 +2,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>龍族拼圖寵物查詢系統 - 管理後台</title>
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+    <script type="text/javascript" src="assets/scripts/main.js"></script>
 </head>
 <body>
 	<header>
@@ -49,7 +51,7 @@
 					echo '<td>'.$effect[$i].'</td>';
 					echo '<td>'.$maxCD[$i].'</td>';
 					echo '<td>'.$minCD[$i].'</td>';
-					echo '<td><a href="update.php?id='.$id[$i].'&url='.$url[$i].'&name='.$name[$i].'&effect='.$effect[$i].'&maxCD='.$maxCD[$i].'&minCD='.$minCD[$i].'">修改</td>';
+					echo '<td><a onclick="popup(&quot;update.php?id='.$id[$i].'&url='.$url[$i].'&name='.$name[$i].'&effect='.$effect[$i].'&maxCD='.$maxCD[$i].'&minCD='.$minCD[$i].'&quot;)">修改</a></td>';
 					echo '<td><a href="delete.php?id='.$id[$i].'">刪除</td>';
 					echo '</tr>';
 				}
