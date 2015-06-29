@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>龍族拼圖寵物查詢系統</title>
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+    <script type="text/javascript" src="assets/scripts/main.js"></script>
 </head>
 <body>
     <header>
@@ -13,7 +14,7 @@
                 <ul>
                     <li><a href="./">Home</a></li>
                     <li><a href="about.php">About</a></li>
-                    <li><a href="#">Search</a></li>
+                    <li><a href="search.php">Search</a></li>
                 </ul>
             </nav>
             <a id="dashboard" href="login.php">Dashboard</a>
