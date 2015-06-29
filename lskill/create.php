@@ -22,12 +22,12 @@
 		echo $insert_sql;
 		$result=mysql_query($insert_sql);
 		if($result){
-			echo "新增成功!!";
+			echo '<script>alert("新增成功!!");</script>';
 		}else{
-			echo "新增失敗!!";
+			echo '<script>alert("新增失敗!!");</script>';
 		}
 	}else{
-		echo "資料不足";
+		echo '<script>alert("資料不足");</script>';
 	}
-	echo "<br><a href='index.php'>返回隊長技能列表</a>"
+	echo '<meta http-equiv="REFRESH" CONTENT="0;url=./">'
 ?>
