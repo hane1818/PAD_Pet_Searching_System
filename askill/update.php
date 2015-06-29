@@ -11,8 +11,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>PAD寵物資料庫管理系統</title>
-	<link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
-    <script type="text/javascript" src="assets/scripts/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="../assets/stylesheets/main.css">
+    <script type="text/javascript" src="../assets/scripts/main.js"></script>
 </head>
 <body>
 	<h1 align="center">修改主動技能</h1>
