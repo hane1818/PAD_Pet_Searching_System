@@ -17,7 +17,7 @@
 <body>
 	<header>
         <div class="wrapper">
-            <a id="title" href="dashboard.php">管理後台</a>
+            <a id="title" href="../dashboard.php">管理後台</a>
             <nav>
                 <ul>
                     <li><a href="../">Home</a></li>
