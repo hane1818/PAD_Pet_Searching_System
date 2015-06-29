@@ -3,7 +3,7 @@
     if(!isset($_SESSION["admin"]))
     {
         echo '<script>alert("您還沒登入喔!")</script>';
-        header("Location: login.php");
+        echo '<meta http-equiv="REFRESH" CONTENT="0;url=../login.php">';
     }
 	header("Content-Type:text/html; charset=utf-8");
 	//連接MySQL伺服器

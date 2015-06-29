@@ -3,7 +3,7 @@
     if(!isset($_SESSION["admin"]))
     {
         echo '<script>alert("您還沒登入喔!")</script>';
-        header("Location: login.php");
+        echo '<meta http-equiv="REFRESH" CONTENT="0;url=../login.php">';
     }
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
             <a id="title" href="dashboard.php">管理後台</a>
             <nav>
                 <ul>
-                    <li><a href="./">Home</a></li>
+                    <li><a href="../">Home</a></li>
                     <li><a href="">寵物</a></li>
                     <li><a href="wake/">覺醒技能</a></li>
                     <li><a href="askill/">主動技能</a></li>
