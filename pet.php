@@ -1,3 +1,13 @@
+<?php
+	session_start();
+	$edit=false;
+	if(!isset($_SESSION["admin"])){
+		//echo '<script>alert("您還沒登入喔!")</script>';
+		//header("Location: login.php");
+	}else{
+		$edit=true;
+	}
+?>
 <!DOCTYPE>
 <html>
 <head>
@@ -86,7 +96,9 @@
 					echo '<a href="pet.php?id='.$record->id.'"><img src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" title="No.'.$record->id.' - '.$record->name.'"></a>';
 				}
 				echo '</td></tr>';
-				echo '<tr><th></th><td bgcolor="#FFFFFF"><a href="pet/update.php?id='.$id.'">修改</a>/<a href="pet/delete.php?id='.$id.'">刪除</a></td></tr>';
+				if($edit){
+					echo '<tr><th></th><td bgcolor="#FFFFFF"><a href="pet/update.php?id='.$id.'">修改</a>/<a href="pet/delete.php?id='.$id.'">刪除</a></td></tr>';
+				}
 			}else{
 				echo '<tr><th width="100"></th><td bgcolor="#FFFFFF">寵物不存在</td></tr>';
 			}
