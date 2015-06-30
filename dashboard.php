@@ -34,7 +34,19 @@
     <div id="main">
         <div class="wrapper">
             <p>
-                <a href="#">這是</a>
+			<?
+				//連接MySQL伺服器
+				$link_ID = mysql_connect('127.0.0.1', 'root', '123');
+				if(!$link_ID) die("Unable to connect MySQL:".mysql_error());
+				mysql_select_db('pad');
+				//使用 UTF8 編碼
+				mysql_query('SET CHARACTER SET UTF8;');
+				$cnt=mysql_query("select count(id) as c from pets");
+				$cnt=mysql_fetch_object($cnt);
+				echo '目前總共有'.$cnt->c.'隻寵物在資料庫中<br>';
+				//<a href="#">這是</a>
+			?>
+				
             </p>
         </div>
     </div>
