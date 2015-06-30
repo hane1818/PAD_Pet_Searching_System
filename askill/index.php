@@ -21,7 +21,8 @@
             <nav>
                 <ul>
                     <li><a href="../">Home</a></li>
-                    <li><a href="../">寵物</a></li>
+                    <li><a href="../pet/create.php">新增寵物</a></li>
+                    <li><a href="../pet">寵物列表</a></li>
                     <li><a href="../wake/">覺醒技能</a></li>
                     <li><a href="../askill/">主動技能</a></li>
                     <li><a href="../lskill/">隊長技能</a></li>

@@ -21,7 +21,8 @@
             <nav>
                 <ul>
                     <li><a href="../">Home</a></li>
-                    <li><a href="../">寵物</a></li>
+                    <li><a href="../pet/create.php">新增寵物</a></li>
+                    <li><a href="../pet">寵物列表</a></li>
                     <li><a href="../wake/">覺醒技能</a></li>
                     <li><a href="../askill/">主動技能</a></li>
                     <li><a href="../lskill/">隊長技能</a></li>
@@ -34,7 +35,7 @@
         <div class="wrapper">
 			<h1 align="center">覺醒技能一覽</h1>
 			<table style="border:5px #cccccc double;" align="center">
-				<tr><th>ID</th><th>ICON</th><th>技能名稱</th><th colspan="2">效果</th><th>Action</th></tr>
+				<tr><th>ID</th><th>ICON</th><th>技能名稱</th><th>效果</th><th colspan="2">Action</th></tr>
 				<tr>
 				<?php
 				//連接MySQL伺服器
