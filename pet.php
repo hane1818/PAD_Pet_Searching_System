@@ -1,11 +1,14 @@
+<!DOCTYPE>
 <html>
 <head>
-<title>PAD寵物資料庫管理系統</title>
-		<meta charset="utf-8">
+	<meta charset="utf-8">
+    <title>龍族拼圖寵物查詢系統</title>
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+    <script type="text/javascript" src="assets/scripts/main.js"></script>
 </head>
 <body>
 	<h1 align="center">寵物詳細能力</h1>
-	<table width="900" border="1" bgcolor="#cccccc" align="center">
+	<table width="800" border="1" bgcolor="#cccccc" align="center">
 		<?php
 			//連接MySQL伺服器
 			$link_ID = mysql_connect('127.0.0.1', 'root', '123');
@@ -13,7 +16,7 @@
 			mysql_select_db('pad');
 			//使用 UTF8 編碼
 			mysql_query('SET CHARACTER SET UTF8;');
-			
+
 			$id=$_GET['id'];
 			$search_id="SELECT * FROM pets where id = $id";
 			$result = mysql_query($search_id);
@@ -30,7 +33,7 @@
 					echo '/<img src="http://web.ntnu.edu.tw/~40172028h/images/Gem'.$record->property2.'.png" width="25" align="absmiddle" title="附屬性:'.$p[$record->property2].'">';
 				}
 				echo '</td></tr>';
-				
+
 				$type[1]='<img src="http://web.ntnu.edu.tw/~40172028h/images/type/god.png"      width="25" align="absmiddle" title="神類">';
 				$type[2]='<img src="http://web.ntnu.edu.tw/~40172028h/images/type/dragon.png"   width="25" align="absmiddle" title="龍類">';
 				$type[3]='<img src="http://web.ntnu.edu.tw/~40172028h/images/type/demon.png"    width="25" align="absmiddle" title="惡魔類">';
@@ -41,15 +44,15 @@
 				$type[8]='<img src="http://web.ntnu.edu.tw/~40172028h/images/type/evo.png"      width="25" align="absmiddle" title="進化用素材">';
 				$type[9]='<img src="http://web.ntnu.edu.tw/~40172028h/images/type/power.png"    width="25" align="absmiddle" title="強化合成用">';
 				$type[10]='<img src="http://web.ntnu.edu.tw/~40172028h/images/type/power.png"   width="25" align="absmiddle" title="能力覺醒用">';
-				
+
 				echo '<tr><th>類型</th><td bgcolor="#FFFFFF">'.$type[$record->type1];
 				if($record->type2){
 					echo $type[$record->type2];
 				}
 				echo '</td></tr>';
 				echo '<tr><th>最大等級</th><td bgcolor="#FFFFFF">'.$record->maxLevel.'</td></tr>';
-				echo '<tr><th>初始能力</th><td bgcolor="#FFFFFF">HP:'.$record->minHP.' , 攻擊:'.$record->minAtk.' , 回復:'.$record->minRec.' , 能力指數:'.($record->minHP/10+$record->minAtk/5+$record->minRec/3).'</td></tr>';
-				echo '<tr><th>滿等能力</th><td bgcolor="#FFFFFF">HP:'.$record->maxHP.' , 攻擊:'.$record->maxAtk.' , 回復:'.$record->maxRec.' , 能力指數:'.($record->maxHP/10+$record->maxAtk/5+$record->maxRec/3).'</td></tr>';
+				echo '<tr><th>初始能力</th><td bgcolor="#FFFFFF">HP:'.$record->minHP.' , 攻擊:'.$record->minAtk.' , 回復:'.$record->minRec.' , 能力指數:'.(round(10*($record->minHP/10+$record->minAtk/5+$record->minRec/3))/10).'</td></tr>';
+				echo '<tr><th>滿等能力</th><td bgcolor="#FFFFFF">HP:'.$record->maxHP.' , 攻擊:'.$record->maxAtk.' , 回復:'.$record->maxRec.' , 能力指數:'.(round(10*($record->maxHP/10+$record->maxAtk/5+$record->maxRec/3))/10).'</td></tr>';
 				$aid=$record->a_id;
 				$search_as=mysql_query("select * from activeskill where id = '$aid'");
 				$as=mysql_fetch_object($search_as);
@@ -69,16 +72,23 @@
 					echo '<img src="'.$ws->url.'" width="25" align="absmiddle" title="'.$ws->name.'">';
 				}
 				echo '</td></tr>';
-				echo '<tr><th>同技能寵物</th><td bgcolor="#FFFFFF">';
+				echo '<tr><th>主動技相同</th><td bgcolor="#FFFFFF">';
 				$same_skill = mysql_query("select * from pets where a_id = '$aid' and id <> '$id'");
 				//echo $same_skill;
 				while($record = mysql_fetch_object($same_skill)){
 					echo '<a href="pet.php?id='.$record->id.'"><img src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" title="No.'.$record->id.' - '.$record->name.'"></a>';
 				}
 				echo '</td></tr>';
-				echo '<tr><th></th><td bgcolor="#FFFFFF">修改/刪除</td></tr>';
+				echo '<tr><th>隊長技相同</th><td bgcolor="#FFFFFF">';
+				$same_skill = mysql_query("select * from pets where l_id = '$lid' and id <> '$id'");
+				//echo $same_skill;
+				while($record = mysql_fetch_object($same_skill)){
+					echo '<a href="pet.php?id='.$record->id.'"><img src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" title="No.'.$record->id.' - '.$record->name.'"></a>';
+				}
+				echo '</td></tr>';
+				echo '<tr><th></th><td bgcolor="#FFFFFF"><a href="pet/update.php?id='.$id.'">修改</a>/<a href="pet/delete.php?id='.$id.'">刪除</a></td></tr>';
 			}else{
-				echo '<tr><th></th><td bgcolor="#FFFFFF">寵物不存在</td></tr>';
+				echo '<tr><th width="100"></th><td bgcolor="#FFFFFF">寵物不存在</td></tr>';
 			}
 		?>
 	</table>
