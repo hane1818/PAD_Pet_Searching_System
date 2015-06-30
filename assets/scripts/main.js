@@ -13,3 +13,14 @@ function popoff() {
     document.getElementsByClassName('popup_back')[0].style.display = "none";
     document.getElementsByClassName('popup_news')[0].style.display = "none";
 }
+
+function display(src) {
+    if(document.getElementsByClassName('pet-content')[0])
+    {
+        document.getElementsByClassName('pet-content')[0].innerHTML = '<iframe src="'+src+'"></iframe>';
+    }
+    else
+    {
+        document.getElementsByClassName('wrapper')[1].innerHTML += '<div class="pet-content"><iframe src="'+src+'"></iframe></div>';
+    }
+}
