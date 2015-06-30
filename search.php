@@ -22,6 +22,7 @@
     </header>
     <div id="main">
         <div class="wrapper">
+            <h1>寵物查詢</h1>
             <form method="post">
             <?
             //header("Content-Type:text/html; charset=utf-8");
@@ -63,22 +64,32 @@
             $p=array('不限','火','水','木','光','暗');
             $property1=empty($_POST['property1'])?0:$_POST['property1'];
             $property2=empty($_POST['property2'])?0:$_POST['property2'];
-            echo '<div>屬性1 ';
+            echo '<label for="property1">屬性1</label>';
             for($i=0;$i<=5;$i++){
                 echo ' <input name="property1" value="'.$i.'" type="radio"';
                 if($i==$property1) echo ' checked';
                 if($i==0) echo '>不限';
                 else echo'><img src="http://web.ntnu.edu.tw/~40172028h/images/Gem'.$i.'.png" width="25" align="absmiddle" alt="'.$p[$i].'" title="'.$p[$i].'">';
             }
-            echo '</div>';
-            echo '<div>屬性2 ';
+            echo '<br>';
+            echo '<label for="property2">屬性2</label>';
             for($i=0;$i<=5;$i++){
                 echo ' <input name="property2" value="'.$i.'" type="radio"';
                 if($i==$property2) echo ' checked';
                 if($i==0) echo '>不限';
                 else echo'><img src="http://web.ntnu.edu.tw/~40172028h/images/Gem'.$i.'.png" width="25" align="absmiddle" alt="'.$p[$i].'" title="'.$p[$i].'">';
             }
-            echo '</div>';
+            echo '<br>';
+
+			$plimit=false;
+			echo '　　　<input type="checkbox" name="plimit"';
+			if($_POST['plimit']){
+				echo ' checked';
+				$plimit=true;
+			}
+			echo '>將屬性1限制為主屬性，屬性2限制為副屬性';
+			echo '<br>';
+
             //類型選擇
             $type=array('不限',
                         '<img src="http://web.ntnu.edu.tw/~40172028h/images/type/god.png"      width="25" align="absmiddle" title="神類">',
@@ -107,6 +118,16 @@
                 echo '>'.$type[$i];
             }
             echo '<br>';
+
+			$tlimit=false;
+			echo '　　　<input type="checkbox" name="tlimit"';
+			if($_POST['tlimit']){
+				echo ' checked';
+				$tlimit=true;
+			}
+			echo '>將類型1限制為主類型，類型2限制為副類型 ';
+			echo '<br>';
+
             //覺醒技能
             echo '<label for="wake">覺醒技能</label>';
             $tmp = mysql_query("select * from wakeskill order by id");
@@ -175,40 +196,75 @@
                 else $text1=" cost >= $cost1 and cost <= $cost2";
             }
             //屬性
-            if($property1==0){
-                if($property2!=0){
-                    if(!empty($text1)) $text1=$text1." and property2 = $property2";
-                    else $text1=" property2 = $property2";
-                }
-            }else{
-                if($property2!=0){
-                    if(!empty($text1)) $text1=$text1." and property1 = $property1 and property2 = $property2";
-                    else $text1=" property1 = $property1 and property2 = $property2";
-                }else{
-                    if(!empty($text1)) $text1=$text1." and property1 = $property1";
-                    else $text1=" property1 = $property1";
-                }
-            }
+            if($plimit){
+				if($property1==0){
+					if($property2!=0){
+						if(!empty($text1)) $text1=$text1." and property2 = $property2";
+						else $text1=" property2 = $property2";
+					}
+				}else{
+					if($property2!=0){
+						if(!empty($text1)) $text1=$text1." and property1 = $property1 and property2 = $property2";
+						else $text1=" property1 = $property1 and property2 = $property2";
+					}else{
+						if(!empty($text1)) $text1=$text1." and property1 = $property1";
+						else $text1=" property1 = $property1";
+					}
+				}
+			}else{
+				if($property1==0){
+					if($property2!=0){
+						if(!empty($text1)) $text1=$text1." and (property1 = $property2 or property2 = $property2)";
+						else $text1=" (property1 = $property2 or property2 = $property2)";
+					}
+				}else{
+					if($property2!=0){
+						if(!empty($text1)) $text1=$text1." and (property1 = $property1 and property2 = $property2) or (property1 = $property2 and property2 = $property1)";
+						else $text1=" (property1 = $property1 and property2 = $property2) or (property1 = $property2 and property2 = $property1)";
+					}else{
+						if(!empty($text1)) $text1=$text1." and (property1 = $property1 or property2 = $property1)";
+						else $text1=" (property1 = $property1 or property2 = $property1)";
+					}
+				}
+			}
             //類型
-            if($type1==0){
-                if($type2!=0){
-                    if(!empty($text1)) $text1=$text1." and type2 = $type2";
-                    else $text1=" type2 = $type2";
-                }
-            }else{
-                if($type2!=0){
-                    if(!empty($text1)) $text1=$text1." and type1 = $type1 and type2 = $type2";
-                    else $text1=" type1 = $type1 and type2 = $type2";
-                }else{
-                    if(!empty($text1)) $text1=$text1." and type1 = $type1";
-                    else $text1=" type1 = $type1";
-                }
-            }
+            if($tlimit){
+				if($type1==0){
+					if($type2!=0){
+						if(!empty($text1)) $text1=$text1." and type2 = $type2";
+						else $text1=" type2 = $type2";
+					}
+				}else{
+					if($type2!=0){
+						if(!empty($text1)) $text1=$text1." and type1 = $type1 and type2 = $type2";
+						else $text1=" type1 = $type1 and type2 = $type2";
+					}else{
+						if(!empty($text1)) $text1=$text1." and type1 = $type1";
+						else $text1=" type1 = $type1";
+					}
+				}
+			}else{
+				if($type1==0){
+					if($type2!=0){
+						if(!empty($text1)) $text1=$text1." and (type1 = $type2 or type2 = $type2)";
+						else $text1=" (type1 = $type2 or type2 = $type2)";
+					}
+				}else{
+					if($type2!=0){
+						if(!empty($text1)) $text1=$text1." and (type1 = $type1 and type2 = $type2) or (type1 = $type2 and type2 = $type1)";
+						else $text1=" (type1 = $type1 and type2 = $type2) or (type1 = $type2 and type2 = $type1)";
+					}else{
+						if(!empty($text1)) $text1=$text1." and (type1 = $type1 or type2 = $type1)";
+						else $text1=" (type1 = $type1 or type2 = $type1)";
+					}
+				}
+			}
             //覺醒技能
             if($use_wake){
                 $text1=$text1.' and id in (select distinct PetID from pethaswake where '.$text2.')';
             }
             //排序
+            //echo '<br>sorting='.$sorting.'<br>';
             if($sorting=="ability"){
                 $search3 = "select * from pets where $text1 order by (maxHP/10+maxAtk/5+maxRec/3) $orderby";
                 $tmp=mysql_query($search3);
@@ -228,7 +284,7 @@
         echo '<br><br><br><br><br><br>目前資料庫有的寵物<br>';
         $select_all = mysql_query("SELECT * FROM pets order by id");
         while($record = mysql_fetch_object($select_all)){
-            echo '<img style="cursor:pointer;" onclick="popup('.$record->id.')" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'">';
+            echo '<img style="cursor:pointer;" onclick="popup(&quot;pet.php?id='.$record->id.'&quot;)" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'">';
         }*/
     ?>
         </div>
