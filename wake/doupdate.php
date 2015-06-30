@@ -15,11 +15,12 @@
 	//使用 UTF8 編碼
 	mysql_query('SET CHARACTER SET UTF8;');
 
-	if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['effect'])) {
+	if (isset($_POST['id']) && isset($_POST['url']) && isset($_POST['name']) && isset($_POST['effect'])) {
 		$id = $_POST['id'];
+		$url = $_POST['url'];
 		$name = $_POST['name'];
 		$effect = $_POST['effect'];
-		$update_sql = "UPDATE WakeSkill SET Name = '$name', Effect = '$effect' WHERE ID=$id";
+		$update_sql = "UPDATE WakeSkill SET name = '$name', url='$url', effect = '$effect' WHERE id='$id'";
 		//echo '<br>'.$update_sql.'<br>';
 		$result = mysql_query($update_sql);
 
