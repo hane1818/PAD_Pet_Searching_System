@@ -41,9 +41,12 @@
 			mysql_select_db('pad');
 			//使用 UTF8 編碼
 			mysql_query('SET CHARACTER SET UTF8;');
+			$cnt=mysql_query("select count(id) as c from pets");
+			$cnt=mysql_fetch_object($cnt);
+			echo '目前總共有'.$cnt->c.'隻寵物在資料庫中<br>';
             $select_all = mysql_query("SELECT * FROM pets order by id");
             while($record = mysql_fetch_object($select_all)){
-                echo '<img style="cursor:pointer;" onclick="popup(&quot;../pet.php?id='.$record->id.'&quot;)" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'">';
+                echo '<img style="cursor:pointer;" onclick="popup(&quot;../pet.php?id='.$record->id.'&quot;)" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'" title="No.'.$record->id.' - '.$record->name.'">';
             }
             ?>
 		</div>

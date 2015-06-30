@@ -11,8 +11,8 @@
 <head>
 	<meta charset="utf-8">
     <title>龍族拼圖寵物查詢系統 - 管理後台</title>
-    <link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
-    <script type="text/javascript" src="assets/scripts/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/stylesheets/main.css">
+    <script type="text/javascript" src="../assets/scripts/main.js"></script>
 </head>
 <body>
 	<h1 align="center">寵物能力修改</h1>
@@ -119,7 +119,7 @@
 				while($tmp=mysql_fetch_object($all_askill)){
 					echo '<option value="'.$tmp->id.'"';
 					if($aid==$tmp->id) echo ' selected';
-					echo '>'.$tmp->name.'</option>';
+					echo '>'.$tmp->id.' - '.$tmp->name.'</option>';
 				}
 				echo '</select>';
 				echo '</td></tr>';
@@ -132,7 +132,7 @@
 				while($tmp=mysql_fetch_object($all_lskill)){
 					echo '<option value="'.$tmp->id.'"';
 					if($lid==$tmp->id) echo ' selected';
-					echo '>'.$tmp->name.'</option>';
+					echo '>'.$tmp->id.' - '.$tmp->name.'</option>';
 				}
 				echo '</select>';
 				echo '</td></tr>';

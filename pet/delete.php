@@ -13,7 +13,7 @@
 	mysql_select_db('pad');
 	//使用 UTF8 編碼
 	mysql_query('SET CHARACTER SET UTF8;');
-	$back='<meta http-equiv="REFRESH" CONTENT="0;url=./">';
+	$back='<meta http-equiv="REFRESH" CONTENT="0;url=../pet.php?id=0">';
 	$id = $_GET['id'];
 	if (isset($id)) {
 		$del_pet = "DELETE FROM pets WHERE id = $id";
@@ -21,8 +21,8 @@
 		//echo $del_pet.'<br>'.$del_ws.'<br>';
 
 		//需要真正刪除，請取消註解以下兩行
-		//$query = mysql_query($del_pet);
-		//$query = mysql_query($del_ws);
+		$query = mysql_query($del_pet);
+		$query = mysql_query($del_ws);
 		if($query) {
 			echo '<script>alert("刪除成功!!");</script>';
 		}else{

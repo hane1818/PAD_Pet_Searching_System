@@ -45,7 +45,7 @@
 	echo '<br>level='.$maxLevel.'<br>min1='.$minHP.'<br>min2='.$minAtk.'<br>min3='.$minRec.'<br>max1='.$maxHP.'<br>max2='.$maxAtk.'<br>max3='.$maxRec.'<br>aid='.$aid.'<br>lid='.$lid.'<br>';
 	*/
 	//新增寵物
-	$back='<meta http-equiv="REFRESH" CONTENT="0;url=update.php">';
+	$back='<meta http-equiv="REFRESH" CONTENT="0;url=../pet.php?id='.$id.'">';
 	if(!empty($id) && !empty($name) && !empty($cost) && !empty($rare) && !empty($property1) && !empty($type1) && !empty($maxLevel) && isset($minHP) && isset($minAtk) && isset($minRec) && isset($maxHP) && isset($maxAtk) && isset($maxRec)){
 		//$update_pet = "upate pets set name='$name',cost='$cost',rare='$rare',property1='$property1',property2='$property2',type1='$type1',maxLevel='$maxLevel',minHP='$minHP',minAtk='$minAtk',";
 		//$update_pet = $update_pet."minRec='$minRec',";
