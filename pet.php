@@ -79,18 +79,18 @@
 				echo '<tr><th>覺醒技能</th><td bgcolor="#FFFFFF">';
 				while($ws=mysql_fetch_object($search_ws)){
 					//$ws=mysql_fetch_object($search_ws);
-					echo '<img src="'.$ws->url.'" width="25" align="absmiddle" title="'.$ws->name.'">';
+					echo '<a href="petwc.php?wid='.$ws->id.'"><img src="'.$ws->url.'" width="25" align="absmiddle" title="'.$ws->name.'"></a>';
 				}
 				echo '</td></tr>';
 				echo '<tr><th>主動技相同</th><td bgcolor="#FFFFFF">';
-				$same_skill = mysql_query("select * from pets where a_id = '$aid' and id <> '$id'");
+				$same_skill = mysql_query("select * from pets where a_id = '$aid' and id <> '$id' order by id");
 				//echo $same_skill;
 				while($record = mysql_fetch_object($same_skill)){
 					echo '<a href="pet.php?id='.$record->id.'"><img src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" title="No.'.$record->id.' - '.$record->name.'"></a>';
 				}
 				echo '</td></tr>';
 				echo '<tr><th>隊長技相同</th><td bgcolor="#FFFFFF">';
-				$same_skill = mysql_query("select * from pets where l_id = '$lid' and id <> '$id'");
+				$same_skill = mysql_query("select * from pets where l_id = '$lid' and id <> '$id' order by id");
 				//echo $same_skill;
 				while($record = mysql_fetch_object($same_skill)){
 					echo '<a href="pet.php?id='.$record->id.'"><img src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" title="No.'.$record->id.' - '.$record->name.'"></a>';
