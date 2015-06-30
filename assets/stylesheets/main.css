@@ -48,6 +48,30 @@ footer {
     text-align: center;
 }
 
+h1 {
+    font-size: 1.5rem;
+    margin: 1.5rem auto;
+    padding: 1rem 10px;
+    border-bottom: 2px solid hsl(240, 35%, 45%);
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin: 1.2rem auto;
+}
+
+p {
+    margin: 20px 0;
+    text-indent: 50px;
+}
+
+ol li {
+    list-style-type: upper-alpha;
+    margin-left: 40px;
+    padding-left: 20px;
+}
+
 a {
     color: hsl(240, 35%, 50%);
     text-decoration: none;
@@ -60,8 +84,9 @@ iframe {
     border: none;
 }
 
-input {
-    margin: 10px 0;
+input , select {
+    margin: 15px 8px !important;
+    padding: 5px !important;
 }
 
 input[type="submit"] {
@@ -73,10 +98,37 @@ input[type="submit"] {
     letter-spacing: 5px;
 }
 
+select {
+    min-width: 75px !important;
+}
+
+table {
+    width: 90% !important;
+    min-width: 500px !important;
+    border-spacing: 0;
+    border: none !important;
+    margin: 50px auto;
+}
+
+table tr:first-child th {
+    background: #ddd !important;
+    text-align: center;
+    font-weight: 900;
+}
+
+table tr td, table tr th {
+    padding: 5px 10px;
+    border: 2px solid #555;
+    font-size: 0.85rem;
+    line-height: 1.5rem;
+    min-width: 75px;
+}
+
 .wrapper {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 900px;
     width: 80%;
+    line-height: 30px;
 }
 
 .popup_back, .popup_news {
@@ -91,9 +143,11 @@ input[type="submit"] {
 .popup_news {
     display: block;
     margin: auto;
-    width: 80vw;
-    border: 1px solid #aaa;
-    border-radius: 5px;
+    height: 85vh;
+    overflow: hidden;
+    width: 75vw;
+    border: 5px solid #aaa;
+    border-radius: 15px;
     box-shadow: 3px 3px 7px #999;
 }
 
