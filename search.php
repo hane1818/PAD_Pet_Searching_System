@@ -127,7 +127,32 @@
 			}
 			echo '>將類型1限制為主類型，類型2限制為副類型 ';
 			echo '<br>';
-
+			//主動技能選擇
+			$aid=$_POST['aid'];
+			echo '<label for "aid">主動技選擇</label>';
+			$all_askill=mysql_query("select * from activeskill order by id");
+			echo '<select name="aid" style="padding:3px;width:200px"><option value="0"';
+			if(!$aid) echo ' selected';
+			echo '>無</option>';
+			while($tmp=mysql_fetch_object($all_askill)){
+				echo '<option value="'.$tmp->id.'"';
+				if($aid==$tmp->id) echo ' selected';
+				echo '>'.$tmp->id.' - '.$tmp->name.'</option>';
+			}
+			echo '</select> ';
+			//隊長技能選擇
+			$lid=$_POST['lid'];
+			echo '<label for "lid">隊長技選擇</label>';
+			$all_lskill=mysql_query("select * from leaderskill order by id");
+			echo '<select name="lid" style="padding:3px;width:200px"><option value="0"';
+			if(!$lid) echo ' selected';
+			echo '>無</option>';
+			while($tmp=mysql_fetch_object($all_lskill)){
+				echo '<option value="'.$tmp->id.'"';
+				if($lid==$tmp->id) echo ' selected';
+				echo '>'.$tmp->id.' - '.$tmp->name.'</option>';
+			}
+			echo '</select><br>';
             //覺醒技能
             echo '<label for="wake">覺醒技能</label>';
             $tmp = mysql_query("select * from wakeskill order by id");
@@ -135,7 +160,7 @@
             $use_wake=false;
             $text2="";
             while($wake=mysql_fetch_object($tmp)){
-                echo ' <input name="wake'.$wake->id.'" type="checkbox"';
+                echo ' <span style="display:inline-block"><input name="wake'.$wake->id.'" type="checkbox"';
                 $wakeid=$wake->id;
                 if($_POST['wake'.$wake->id]){
                     echo ' checked';
@@ -143,7 +168,7 @@
                     if(!empty($text2)) $text2=$text2." and PetID in (select distinct PetID from pethaswake where wakeID = $wakeid)";
                     else $text2=" wakeID = $wakeid";
                 }
-                echo '><img src="'.$wake->url.'" width="25" align="absmiddle" title="'.$wake->name.'">';
+                echo '><img src="'.$wake->url.'" width="25" align="absmiddle" title="'.$wake->name.'"></span>';
             }
             echo '<br>';
             //排列方式
@@ -259,6 +284,16 @@
 					}
 				}
 			}
+			//主動技能
+			if(!empty($aid)){
+				if(!empty($text1)) $text1=$text1." and a_id='$aid'";
+				else $text1=" a_id='$aid'";
+			}
+			//隊長技能
+			if(!empty($lid)){
+				if(!empty($text1)) $text1=$text1." and l_id='$lid'";
+				else $text1=" l_id='$lid'";
+			}
             //覺醒技能
             if($use_wake){
                 $text1=$text1.' and id in (select distinct PetID from pethaswake where '.$text2.')';
@@ -269,13 +304,13 @@
                 $search3 = "select * from pets where $text1 order by (maxHP/10+maxAtk/5+maxRec/3) $orderby";
                 $tmp=mysql_query($search3);
                 while($record = mysql_fetch_object($tmp)){
-                    echo '<img style="cursor:pointer;" onclick="popup(&quot;pet.php?id='.$record->id.'&quot;)" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'">';
+                    echo '<img style="cursor:pointer;" onclick="popup(&quot;pet.php?id='.$record->id.'&quot;)" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'" title="No.'.$record->id.' - '.$record->name.'">';
                 }
             }else{
                 $search3 = "select * from pets where $text1 order by $sorting $orderby";
                 $tmp=mysql_query($search3);
                 while($record = mysql_fetch_object($tmp)){
-                    echo '<img style="cursor:pointer;" onclick="popup(&quot;pet.php?id='.$record->id.'&quot;)" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'">';
+                    echo '<img style="cursor:pointer;" onclick="popup(&quot;pet.php?id='.$record->id.'&quot;)" src="http://web.ntnu.edu.tw/~40172028h/pets/'.$record->id.'.png" alt="No.'.$record->id.' - '.$record->name.'" title="No.'.$record->id.' - '.$record->name.'">';
                 }
             }
             //echo '<br>search3='.$search3.'<br>';
