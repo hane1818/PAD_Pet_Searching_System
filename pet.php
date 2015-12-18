@@ -7,6 +7,7 @@
 	}else{
 		$edit=true;
 	}
+	include_once 'parse.php'
 ?>
 <!DOCTYPE>
 <html>

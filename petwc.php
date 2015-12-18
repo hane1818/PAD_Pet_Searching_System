@@ -1,3 +1,4 @@
+<?php include_once 'parse.php' ?>
 <!DOCTYPE>
 <html>
 <head>
@@ -34,7 +35,7 @@
 				echo '</tr>';
 				break;
 			}
-			
+
 		}
 		?>
 		<tr><td colspan="3" width="100">

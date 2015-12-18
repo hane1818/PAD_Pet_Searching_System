@@ -5,6 +5,7 @@
         echo '<script>alert("您還沒登入喔!")</script>';
         header("Location: login.php");
     }
+    include_once 'parse.php'
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +47,7 @@
 				echo '目前總共有'.$cnt->c.'隻寵物在資料庫中<br>';
 				//<a href="#">這是</a>
 			?>
-				
+
             </p>
         </div>
     </div>
