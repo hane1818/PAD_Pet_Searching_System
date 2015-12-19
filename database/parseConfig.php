@@ -5,9 +5,9 @@ class parseConfig{
     private $masterkey_ = getenv('MASTER_KEY');
     private $restkey_ = getenv('REST_KEY');
 
-    const APPID = $appid_;
-    const MASTERKEY = $masterkey_;
-    const RESTKEY = $restkey_;
+    const APPID = constant($appid_);
+    const MASTERKEY = constant($masterkey_);
+    const RESTKEY = constant($restkey_);
     const PARSEURL = 'https://api.parse.com/1/';
 }
 
