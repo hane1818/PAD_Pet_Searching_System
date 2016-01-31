@@ -1,24 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 2.10.3
--- http://www.phpmyadmin.net
---
--- 主機: localhost
--- 建立日期: Jun 29, 2015, 08:02 AM
--- 伺服器版本: 5.0.51
--- PHP 版本: 5.2.6
-
--- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
---
--- 資料庫: 'pad'
---
-
--- --------------------------------------------------------
-
---
--- 資料表格式： 'activeskill'
---
-
 CREATE TABLE activeskill (
   id INTEGER PRIMARY KEY NOT NULL,
   `name` TEXT default NULL,
@@ -26,11 +5,6 @@ CREATE TABLE activeskill (
   maxCD INTEGER default NULL,
   minCD INTEGER default NULL,
 );
-
---
--- 列出以下資料庫的數據： 'activeskill'
---
-
 INSERT INTO activeskill(id, `name`, effect, maxCD, minCD) VALUES (911, '継界召龍陣・火闇', '所有寶珠變為火暗', 20, 15);
 INSERT INTO activeskill(id, `name`, effect, maxCD, minCD) VALUES (1, 'ヒートブレス', '對敵方全體造成自身攻擊力3倍的火屬性傷害，會受到敵人的屬性和防禦的影響', 10, 5);
 INSERT INTO activeskill(id, `name`, effect, maxCD, minCD) VALUES (3, 'マグマブレス', '2回合內，火屬性攻擊力1.3倍，同時對敵方全體造成自身攻擊力20倍火屬性傷害', 30, 8);
@@ -97,22 +71,11 @@ INSERT INTO activeskill(id, `name`, effect, maxCD, minCD) VALUES (185, '攻撃�
 INSERT INTO activeskill(id, `name`, effect, maxCD, minCD) VALUES (187, 'ラース・オブ・ゴッド', '敵人HP減少35%', 35, 20);
 INSERT INTO activeskill(id, `name`, effect, maxCD, minCD) VALUES (191, 'ボム', '1回合內，所有敵人的防禦力減少25%；並對敵方1體造成自身攻擊力×10倍的傷害', 30, 5);
 
--- --------------------------------------------------------
-
---
--- 資料表格式： 'leaderskill'
---
-
 CREATE TABLE leaderskill (
   id INTEGER PRIMARY KEY NOT NULL,
   `name` TEXT default NULL,
   effect TEXT default NULL,
 );
-
---
--- 列出以下資料庫的數據： 'leaderskill'
---
-
 INSERT INTO leaderskill(id, `name`, effect) VALUES (1645, '魔龍族の真髄', '惡魔類寵物的攻擊力和回復力變成2.5倍；另外6COMBO或以上時，所有寵物的攻擊力變成1.2倍');
 INSERT INTO leaderskill(id, `name`, effect) VALUES (1, '火の力', '火屬性寵物的攻擊力變為1.5倍');
 INSERT INTO leaderskill(id, `name`, effect) VALUES (4, '爆炎の力', '火屬性寵物的攻擊力變為2倍');
@@ -153,12 +116,6 @@ INSERT INTO leaderskill(id, `name`, effect) VALUES (140, 'クイックブース�
 INSERT INTO leaderskill(id, `name`, effect) VALUES (141, '神の一手', '寶珠移動的最大時限延長5秒');
 INSERT INTO leaderskill(id, `name`, effect) VALUES (187, 'パワー・オブ・ゼウス', 'HP全滿時，所有寵物的攻擊力變成3倍');
 
--- --------------------------------------------------------
-
---
--- 資料表格式： 'pethaswake'
---
-
 CREATE TABLE pethaswake (
   PetID INTEGER NOT NULL,
   wakeNum INTEGER NOT NULL,
@@ -166,11 +123,6 @@ CREATE TABLE pethaswake (
   PRIMARY KEY  (PetID,wakeNum),
 );
 CREATE INDEX id_wake ON pethaswake(wakeID);
-
---
--- 列出以下資料庫的數據： 'pethaswake'
---
-
 INSERT INTO pethaswake(PetID, wakeNum, wakeID) VALUES (1645, 1, 22);
 INSERT INTO pethaswake(PetID, wakeNum, wakeID) VALUES (1645, 2, 26);
 INSERT INTO pethaswake(PetID, wakeNum, wakeID) VALUES (1645, 3, 20);
@@ -293,12 +245,6 @@ INSERT INTO pethaswake(PetID, wakeNum, wakeID) VALUES (190, 1, 8);
 INSERT INTO pethaswake(PetID, wakeNum, wakeID) VALUES (190, 2, 18);
 INSERT INTO pethaswake(PetID, wakeNum, wakeID) VALUES (190, 3, 27);
 
--- --------------------------------------------------------
-
---
--- 資料表格式： 'pets'
---
-
 CREATE TABLE pets (
   id INTEGER PRIMARY KEY NOT NULL,
   `name` TEXT default NULL,
@@ -320,10 +266,6 @@ CREATE TABLE pets (
   howtoget TEXT default NULL,
 );
 CREATE INDEX idx_a_i ON pets(a_id, l_id);
---
--- 列出以下資料庫的數據： 'pets'
---
-
 INSERT INTO pets(id, `name`, cost, rare, property1, property2, type1, type2, maxLevel, minHP, minAtk, minRec, maxHP, maxAtk, maxRec, a_id, l_id, howtoget)
   VALUES (1645, '絶世の紅龍喚士・ソニア', 60, 7, 1, 5, 2, 3, 99, 1832, 693, 66, 3297, 1925, 165, 911, 1645, NULL);
 INSERT INTO pets(id, `name`, cost, rare, property1, property2, type1, type2, maxLevel, minHP, minAtk, minRec, maxHP, maxAtk, maxRec, a_id, l_id, howtoget)
@@ -721,23 +663,12 @@ INSERT INTO pets(id, `name`, cost, rare, property1, property2, type1, type2, max
 INSERT INTO pets(id, `name`, cost, rare, property1, property2, type1, type2, maxLevel, minHP, minAtk, minRec, maxHP, maxAtk, maxRec, a_id, l_id, howtoget)
   VALUES (200, 'ブラッドデーモン', 8, 3, 5, NULL, 5, NULL, 50, 180, 345, 113, 508, 1079, 163, 191, NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- 資料表格式： 'wakeskill'
---
-
 CREATE TABLE wakeskill (
   id INTEGER PRIMARY KEY NOT NULL,
   url TEXT default NULL,
   `name` TEXT default NULL,
   effect TEXT default NULL,
 );
-
---
--- 列出以下資料庫的數據： 'wakeskill'
---
-
 INSERT INTO wakeskill(id, url, `name`, effect) VALUES (1, 'http://web.ntnu.edu.tw/~40172028h/images/wake/skill-01.png', 'HP強化', 'HP增加200點');
 INSERT INTO wakeskill(id, url, `name`, effect) VALUES (2, 'http://web.ntnu.edu.tw/~40172028h/images/wake/skill-02.png', '攻撃強化', '攻擊力增加100點');
 INSERT INTO wakeskill(id, url, `name`, effect) VALUES (3, 'http://web.ntnu.edu.tw/~40172028h/images/wake/skill-03.png', '回復強化', '回復力增加50點');
