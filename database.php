@@ -5,5 +5,5 @@ fclose($myfile);
 
 $db = new SQLite3('pad.db');
 $db->exec($sql);
-echo $db->exec('SELECT * FROM wakeskill');
+echo $db->query('SELECT * FROM wakeskill');
  ?>
